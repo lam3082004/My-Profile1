@@ -1201,9 +1201,14 @@ window.Modernizr = (function( window, document, undefined ) {
             ');return n}'
                                                          )(html5, data.frag);
         }
+
+        /*--------------------------------------------------------------------------*/
+
+        /**
+         * Shivs the given document.
          * @memberOf html5
          * @param {Document} ownerDocument The document to shiv.
-         * @returns {Document} 
+         * @returns {Document} The shived document.
          */
         function shivDocument(ownerDocument) {
           if (!ownerDocument) {
@@ -1324,28 +1329,77 @@ window.Modernizr = (function( window, document, undefined ) {
     // usage:
     // Modernizr.mq('only screen and (max-width:768)')
     Modernizr.mq            = testMediaQuery;
+    /*>>mq*/
 
+    /*>>hasevent*/
+    // Modernizr.hasEvent() detects support for a given event, with an optional element to test on
+    // Modernizr.hasEvent('gesturestart', elem)
     Modernizr.hasEvent      = isEventSupported;
+    /*>>hasevent*/
 
+    /*>>testprop*/
+    // Modernizr.testProp() investigates whether a given style property is recognized
+    // Note that the property names must be provided in the camelCase variant.
+    // Modernizr.testProp('pointerEvents')
     Modernizr.testProp      = function(prop){
         return testProps([prop]);
     };
+    /*>>testprop*/
 
+    /*>>testallprops*/
+    // Modernizr.testAllProps() investigates whether a given style property,
+    //   or any of its vendor-prefixed variants, is recognized
+    // Note that the property names must be provided in the camelCase variant.
+    // Modernizr.testAllProps('boxSizing')
     Modernizr.testAllProps  = testPropsAll;
+    /*>>testallprops*/
 
+
+    /*>>teststyles*/
+    // Modernizr.testStyles() allows you to add custom styles to the document and test an element afterwards
+    // Modernizr.testStyles('#modernizr { position:absolute }', function(elem, rule){ ... })
     Modernizr.testStyles    = injectElementWithStyles;
+    /*>>teststyles*/
+
+
+    /*>>prefixed*/
+    // Modernizr.prefixed() returns the prefixed or nonprefixed property name variant of your input
+    // Modernizr.prefixed('boxSizing') // 'MozBoxSizing'
+
+    // Properties must be passed as dom-style camelcase, rather than `box-sizing` hypentated style.
+    // Return values will also be the camelCase variant, if you need to translate that to hypenated style use:
+    //
+    //     str.replace(/([A-Z])/g, function(str,m1){ return '-' + m1.toLowerCase(); }).replace(/^ms-/,'-ms-');
+
+    // If you're trying to ascertain which transition end event to bind to, you might do something like...
+    //
+    //     var transEndEventNames = {
+    //       'WebkitTransition' : 'webkitTransitionEnd',
+    //       'MozTransition'    : 'transitionend',
+    //       'OTransition'      : 'oTransitionEnd',
+    //       'msTransition'     : 'MSTransitionEnd',
+    //       'transition'       : 'transitionend'
+    //     },
+    //     transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ];
 
     Modernizr.prefixed      = function(prop, obj, elem){
       if(!obj) {
         return testPropsAll(prop, 'pfx');
       } else {
-
+        // Testing DOM property e.g. Modernizr.prefixed('requestAnimationFrame', window) // 'mozRequestAnimationFrame'
         return testPropsAll(prop, obj, elem);
       }
     };
+    /*>>prefixed*/
 
-    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +    (enableClasses ? ' js ' + classes.join(' ') : '');
 
+    /*>>cssclasses*/
+    // Remove "no-js" class from <html> element, if it exists:
+    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
+
+                            // Add the new classes to the <html> element.
+                            (enableClasses ? ' js ' + classes.join(' ') : '');
+    /*>>cssclasses*/
 
     return Modernizr;
 

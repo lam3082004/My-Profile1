@@ -1,28 +1,23 @@
 var contact = [
-     
     {
-        link: "https://www.facebook.com/duc.ceh.cnna",
+        link: "https://www.facebook.com/lam3082004/",
         type: "Facebook",
         icon: "icons/facebook.svg"
+    }, {
+        link: "https://github.com/lam3082004",
+        type: "GitHub",
+        icon: "icons/github.svg"
     },  {
-        link: "https://www.linkedin.com/in/ducnm1998",
+        link: "https://www.linkedin.com/in/l%C3%A2m-b%C3%B9i-16748a21a/",
         type: "LinkedIn",
         icon: "icons/linkedin.svg"
     },  {
-        link: "https://medium.com/@cnguynminh",
+        link: "https://medium.com/@lam3082004",
         type: "Medium",
         icon: "icons/medium.svg"
     }, {
-        link: "https://plus.google.com/u/0/114358887741576620840?tab=kX",
+        link: "",
         type: "Google+",
-        icon: "icons/google-plus.svg"
-    }, {
-        link: "https://github.com/ducga1998",
-        type: "GitHub",
-        icon: "icons/github-circle.svg"
-    }, {
-        link : "https://kipalog.com/users/NguyenMinhDuc11111/mypage",
-        type : "Kipalog",
-        icon : 'icons/kiapalog.ico'
+        icon: "icons/google.svg"
     }
 ];

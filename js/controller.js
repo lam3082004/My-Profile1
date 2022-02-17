@@ -65,12 +65,13 @@ function populateTimeline(filter) {
 
         if ((filter !== undefined && item.type == filter)
             || filter === undefined) {
-            // Check type
+                
             var output = "<div class='cd-timeline-block'>";
             output += useImage(item.type);
 
             output += "<div class='cd-timeline-content'><p>";
-            output += `<h1 style="padding : 10px 0px;">${item.name}</h1>`;
+            output += `<h1 style="padding : 10px 3px; color: white">${item.name}</h1>`;
+
             if (item.type == "Projects") {
 
                 output += `<h3>${item.description}</h3>`;
@@ -114,7 +115,7 @@ function activeNativigation(active) {
     populateMenu()
 }
 function contactDialog() {
-    // Generate things
+
     activeNativigation('Contact')
     var output = "<ul>";
     for (var i = 0; i < contact.length; i++) {
@@ -136,8 +137,7 @@ function contactDialog() {
     }, 200);
 }
 window.onload = function () {
-
-    categories = populateTimeline(localStorage.getItem('cv-active') || 'Background');
+    categories = populateTimeline(localStorage.getItem('cv-active')) || 'Background';
     console.log('categories', categories)
     categorieSave = categories
     populateMenu(categories);
