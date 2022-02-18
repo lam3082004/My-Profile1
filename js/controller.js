@@ -26,12 +26,12 @@ function useImage(type) {
     var icon = "icons/checkbox-blank-circle.svg";
     var color = "#2196f3";
     if (type == "Background") {
-        icon = "icons/school.svg";
+        icon = "icons/book.svg";
     } else if (type == "Projects") {
         icon = "icons/memory.svg";
     } 
     else if (type == "Target") {
-        icon = "icons/book.svg";
+        icon = "icons/school.svg";
     } 
     else {
         icon = "icons/memory.svg";
