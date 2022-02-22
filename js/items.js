@@ -32,9 +32,9 @@ me = [
     {
         type: 'Background',
         name: 'Won the fourth prize in the national science and technology',
-        description: "I have achieved great goals by this contest...",
+        description: "The biggest prize I have right now...",
         date: 'March-2021',
-        imageSrc:'images/Technology.png',
+        imageSrc:'../images/Technology.png',
         link: 'https://baonghean.vn/truong-thpt-chuyen-dai-hoc-vinh-dat-giai-tai-cuoc-thi-khoa-hoc-ky-thuat-cap-quoc-gia-284262.html',
         linkText: 'View'
     },
@@ -104,9 +104,10 @@ me = [
     },
     {
         type: 'Target',
-        name: 'HaHa',
+        name: 'Startup',
         description: '',
-        date: ''
+        date: '203x',
+        imageSrc: '../images/Startup.jpg'
     }
 
 ]
